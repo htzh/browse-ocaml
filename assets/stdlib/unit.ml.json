@@ -1,0 +1,11 @@
+{
+	"exports": {
+		"Stdlib.Unit.to_string": [1148, 1157],
+		"Stdlib.Unit.compare": [1126, 1133],
+		"Stdlib.Unit.equal": [1103, 1108]},
+	"locs": [[1088, 1092, {"name": "unit", "def": "TR", "typ": "unit"}],
+		[1103, 1108, {"name": "equal", "def": "VD", "typ": "t/10 &xrarr; t/10 &xrarr; bool"}],
+		[1117, 1121, {"name": "true", "def": "TR", "typ": "bool"}],
+		[1126, 1133, {"name": "compare", "def": "VD", "typ": "t/10 &xrarr; t/10 &xrarr; int"}],
+		[1148, 1157, {"name": "to_string", "def": "VD", "typ": "t/10 &xrarr; string"}]]
+}

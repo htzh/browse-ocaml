@@ -1,0 +1,7 @@
+{
+	"exports": {
+		"Runtimedef.builtin_primitives": [269, 287],
+		"Runtimedef.builtin_exceptions": [4, 22]},
+	"locs": [[4, 22, {"name": "builtin_exceptions", "def": "VD", "typ": "string array"}],
+		[269, 287, {"name": "builtin_primitives", "def": "VD", "typ": "string array"}]]
+}

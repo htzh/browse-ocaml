@@ -1,0 +1,14 @@
+{
+	"exports": {
+		"Ocamlmklibconfig.toolpref": [120, 128],
+		"Ocamlmklibconfig.mksharedlibrpath": [94, 110],
+		"Ocamlmklibconfig.default_rpath": [71, 84],
+		"Ocamlmklibconfig.supports_shared_libraries": [34, 59],
+		"Ocamlmklibconfig.bindir": [4, 10]},
+	"locs": [[4, 10, {"name": "bindir", "def": "VD", "typ": "string"}],
+		[34, 59, {"name": "supports_shared_libraries", "def": "VD", "typ": "bool"}],
+		[62, 66, {"name": "true", "def": "TR", "typ": "bool"}],
+		[71, 84, {"name": "default_rpath", "def": "VD", "typ": "string"}],
+		[94, 110, {"name": "mksharedlibrpath", "def": "VD", "typ": "string"}],
+		[120, 128, {"name": "toolpref", "def": "VD", "typ": "string"}]]
+}

@@ -1,0 +1,14 @@
+{
+	"exports": {
+		"Stdlib.Oo.public_method_label": [1206, 1225],
+		"Stdlib.Oo.new_method": [1154, 1164],
+		"Stdlib.Oo.id": [1110, 1149],
+		"Stdlib.Oo.copy": [1083, 1087]},
+	"locs": [[1083, 1087, {"name": "copy", "def": "VD", "typ": "(< .. > as 'a) &xrarr; 'a"}],
+		[1090, 1109, {"name": "CamlinternalOO.copy", "def": "VR", "intf": "stdlib/camlinternalOO.mli", "loc": [2570, 2601], "impl": "stdlib/camlinternalOO.ml", "typ": "(< .. > as 'a) &xrarr; 'a"}],
+		[1134, 1137, {"name": "int", "def": "TR", "typ": "int"}],
+		[1154, 1164, {"name": "new_method", "def": "VD", "typ": "string &xrarr; CamlinternalOO.tag"}],
+		[1167, 1201, {"name": "CamlinternalOO.public_method_label", "def": "VR", "intf": "stdlib/camlinternalOO.mli", "loc": [1306, 1345], "impl": "stdlib/camlinternalOO.ml", "typ": "string &xrarr; CamlinternalOO.tag"}],
+		[1206, 1225, {"name": "public_method_label", "def": "VD", "typ": "string &xrarr; CamlinternalOO.tag"}],
+		[1228, 1262, {"name": "CamlinternalOO.public_method_label", "def": "VR", "intf": "stdlib/camlinternalOO.mli", "loc": [1306, 1345], "impl": "stdlib/camlinternalOO.ml", "typ": "string &xrarr; CamlinternalOO.tag"}]]
+}
