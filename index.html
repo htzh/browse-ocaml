@@ -183,7 +183,7 @@ var annot = {};
 		}
 
 	function load_code(path, d) {
-			let ocaml = "https://raw.githubusercontent.com/ocaml/ocaml/4.10.2/";
+			let ocaml = "https://raw.githubusercontent.com/ocaml/ocaml/5.1/";
 			let url = ocaml+encodeURIComponent(path);
 			fetch(url).then(function(response) {
 					response.text().then(function(text) {
