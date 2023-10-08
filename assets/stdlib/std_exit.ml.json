@@ -1,0 +1,6 @@
+{
+	"exports": {
+},
+	"locs": [[1165, 1175, {"name": "Stdlib.do_at_exit", "def": "VR", "intf": "stdlib/stdlib.mli", "loc": [52998, 53027], "impl": "stdlib/stdlib.ml", "typ": "unit &xrarr; unit"}],
+		[1175, 1177, {"name": "()", "def": "TR", "typ": "unit"}]]
+}

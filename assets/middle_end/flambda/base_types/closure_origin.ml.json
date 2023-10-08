@@ -1,0 +1,20 @@
+{
+	"exports": {
+		"Closure_origin.create": [1262, 1268],
+		"Closure_origin.output_full": [1506, 1548],
+		"Closure_origin.unique_name": [1475, 1504],
+		"Closure_origin.get_compilation_unit": [1423, 1473],
+		"Closure_origin.in_compilation_unit": [1365, 1422],
+		"Closure_origin.unwrap_set": [1323, 1363],
+		"Closure_origin.wrap_map": [1278, 1322],
+		"Closure_origin.unwrap": [1248, 1276],
+		"Closure_origin.wrap": [1221, 1247],
+		"Closure_origin.print": [3693, 3717],
+		"Closure_origin.output": [3693, 3717],
+		"Closure_origin.compare": [3693, 3717],
+		"Closure_origin.hash": [3693, 3717],
+		"Closure_origin.equal": [3693, 3717]},
+	"locs": [[1262, 1268, {"name": "create", "def": "VD", "typ": "'a &xrarr; 'a"}],
+		[1269, 1270, {"name": "t", "def": "VD", "typ": "'a"}],
+		[1273, 1274, {"name": "t", "def": "VR", "loc": [1269, 1270],"typ": "'a"}]]
+}

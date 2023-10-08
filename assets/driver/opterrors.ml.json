@@ -1,0 +1,6 @@
+{
+	"exports": {
+		"Opterrors.report_error": [1195, 1207]},
+	"locs": [[1195, 1207, {"name": "report_error", "def": "VD", "typ": "Format.formatter &xrarr; exn &xrarr; unit"}],
+		[1210, 1235, {"name": "Location.report_exception", "def": "VR", "intf": "parsing/location.mli", "loc": [12377, 12423], "impl": "parsing/location.ml", "typ": "Format.formatter &xrarr; exn &xrarr; unit"}]]
+}

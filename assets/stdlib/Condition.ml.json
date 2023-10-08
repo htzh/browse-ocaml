@@ -1,0 +1,16 @@
+{
+	"exports": {
+		"Stdlib.Condition.broadcast": [1258, 1319],
+		"Stdlib.Condition.signal": [1202, 1257],
+		"Stdlib.Condition.wait": [1139, 1201],
+		"Stdlib.Condition.create": [1086, 1138]},
+	"locs": [[1103, 1107, {"name": "unit", "def": "TR", "typ": "unit"}],
+		[1111, 1112, {"name": "t", "def": "TR", "impl": "condition.ml", "loc": [1079, 1085],"typ": "t"}],
+		[1154, 1155, {"name": "t", "def": "TR", "impl": "condition.ml", "loc": [1079, 1085],"typ": "t"}],
+		[1159, 1166, {"name": "Stdlib.Mutex.t", "def": "TR", "intf": "stdlib/mutex.mli", "loc": [1455, 1461], "typ": "Mutex.t"}],
+		[1170, 1174, {"name": "unit", "def": "TR", "typ": "unit"}],
+		[1219, 1220, {"name": "t", "def": "TR", "impl": "condition.ml", "loc": [1079, 1085],"typ": "t"}],
+		[1224, 1228, {"name": "unit", "def": "TR", "typ": "unit"}],
+		[1278, 1279, {"name": "t", "def": "TR", "impl": "condition.ml", "loc": [1079, 1085],"typ": "t"}],
+		[1283, 1287, {"name": "unit", "def": "TR", "typ": "unit"}]]
+}

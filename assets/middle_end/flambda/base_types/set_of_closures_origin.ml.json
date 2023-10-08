@@ -1,0 +1,21 @@
+{
+	"exports": {
+		"Set_of_closures_origin.rename": [1287, 1293],
+		"Set_of_closures_origin.create": [1270, 1276],
+		"Set_of_closures_origin.get_compilation_unit": [1424, 1474],
+		"Set_of_closures_origin.name": [1394, 1423],
+		"Set_of_closures_origin.create": [1341, 1393],
+		"Set_of_closures_origin.print": [3693, 3717],
+		"Set_of_closures_origin.output": [3693, 3717],
+		"Set_of_closures_origin.compare": [3693, 3717],
+		"Set_of_closures_origin.hash": [3693, 3717],
+		"Set_of_closures_origin.equal": [3693, 3717]},
+	"locs": [[1270, 1276, {"name": "create", "def": "VD", "typ": "'a &xrarr; 'a"}],
+		[1277, 1278, {"name": "t", "def": "VD", "typ": "'a"}],
+		[1281, 1282, {"name": "t", "def": "VR", "loc": [1277, 1278],"typ": "'a"}],
+		[1287, 1293, {"name": "rename", "def": "VD", "typ": "('a &xrarr; 'b) &xrarr; 'a &xrarr; 'b"}],
+		[1294, 1295, {"name": "f", "def": "VD", "typ": "'a &xrarr; 'b"}],
+		[1296, 1297, {"name": "t", "def": "VD", "typ": "'a"}],
+		[1300, 1301, {"name": "f", "def": "VR", "loc": [1294, 1295],"typ": "'a &xrarr; 'b"}],
+		[1302, 1303, {"name": "t", "def": "VR", "loc": [1296, 1297],"typ": "'a"}]]
+}

@@ -1,0 +1,27 @@
+{
+	"exports": {
+		"Find_recursive_functions.in_function_declarations": [1242, 1266]},
+	"locs": [[1242, 1266, {"name": "in_function_declarations", "def": "VD", "typ": "Flambda.function_declarations &xrarr;backend:(module Backend_intf.S) &xrarr; Variable.Set.t"}],
+		[1285, 1314, {"name": "Flambda.function_declarations", "def": "TR", "intf": "middle_end/flambda/flambda.mli", "loc": [13546, 14396], "typ": "Flambda.function_declarations"}],
+		[1323, 1330, {"name": "backend", "def": "VD", "typ": "(module Backend_intf.S)"}],
+		[1407, 1421, {"name": "directed_graph", "def": "VD", "typ": "Variable.Set.t Variable.Map.t"}],
+		[1448, 1455, {"name": "backend", "def": "VR", "loc": [1323, 1330],"typ": "(module Backend_intf.S)"}],
+		[1481, 1523, {"name": "Flambda_utils.fun_vars_referenced_in_decls", "def": "VR", "intf": "middle_end/flambda/flambda_utils.mli", "loc": [7041, 7190], "impl": "middle_end/flambda/flambda_utils.ml", "typ": "Flambda.function_declarations &xrarr;closure_symbol:(Closure_id.t &xrarr; Symbol.t) &xrarr; Variable.Set.t Variable.Map.t"}],
+		[1524, 1538, {"name": "function_decls", "def": "VR", "loc": [1268, 1282],"typ": "Flambda.function_declarations"}],
+		[1561, 1577, {"name": "B.closure_symbol", "def": "VR", "intf": "middle_end/backend_intf.mli", "loc": [1811, 1856], "impl": "middle_end/backend_intf.ml", "typ": "Closure_id.t &xrarr; Symbol.t"}],
+		[1589, 1609, {"name": "connected_components", "def": "VD", "typ": "VCC.component array"}],
+		[1616, 1666, {"name": "VCC.connected_components_sorted_from_roots_to_leaf", "def": "VR", "intf": "utils/strongly_connected_components.mli", "loc": [1878, 1900], "impl": "utils/strongly_connected_components.ml", "typ": "VCC.directed_graph &xrarr; VCC.component array"}],
+		[1667, 1681, {"name": "directed_graph", "def": "VR", "loc": [1407, 1421],"typ": "Variable.Set.t Variable.Map.t"}],
+		[1689, 1704, {"name": "Stdlib.Array.fold_left", "def": "VR", "intf": "stdlib/array.mli", "loc": [7203, 7267], "impl": "stdlib/array.ml", "typ": "(Variable.Set.t &xrarr; VCC.component &xrarr; Variable.Set.t) &xrarr;Variable.Set.t &xrarr; VCC.component array &xrarr; Variable.Set.t"}],
+		[1710, 1717, {"name": "rec_fun", "def": "VD", "typ": "Variable.Set.t"}],
+		[1738, 1749, {"name": "VCC.No_loop", "def": "TR", "intf": "utils/strongly_connected_components.mli", "loc": [1878, 1900], "typ": "VCC.component"}],
+		[1755, 1762, {"name": "rec_fun", "def": "VR", "loc": [1710, 1717],"typ": "Variable.Set.t"}],
+		[1771, 1783, {"name": "VCC.Has_loop", "def": "TR", "intf": "utils/strongly_connected_components.mli", "loc": [1878, 1900], "typ": "VCC.component"}],
+		[1784, 1788, {"name": "elts", "def": "VD", "typ": "Variable.t list"}],
+		[1792, 1807, {"name": "Stdlib.List.fold_right", "def": "VR", "intf": "stdlib/list.mli", "loc": [7521, 7585], "impl": "stdlib/list.ml", "typ": "(Variable.Set.elt &xrarr; Variable.Set.t &xrarr; Variable.Set.t) &xrarr;Variable.Set.elt list &xrarr; Variable.Set.t &xrarr; Variable.Set.t"}],
+		[1808, 1824, {"name": "Variable.Set.add", "def": "VR", "intf": "utils/identifiable.mli", "loc": [3734, 3756], "impl": "utils/identifiable.ml", "typ": "Variable.Set.elt &xrarr; Variable.Set.t &xrarr; Variable.Set.t"}],
+		[1825, 1829, {"name": "elts", "def": "VR", "loc": [1784, 1788],"typ": "Variable.Set.elt list"}],
+		[1830, 1837, {"name": "rec_fun", "def": "VR", "loc": [1710, 1717],"typ": "Variable.Set.t"}],
+		[1843, 1861, {"name": "Variable.Set.empty", "def": "VR", "intf": "utils/identifiable.mli", "loc": [3734, 3756], "impl": "utils/identifiable.ml", "typ": "Variable.Set.t"}],
+		[1862, 1882, {"name": "connected_components", "def": "VR", "loc": [1589, 1609],"typ": "VCC.component array"}]]
+}

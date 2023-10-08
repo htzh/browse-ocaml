@@ -1,0 +1,17 @@
+{
+	"exports": {
+		"Var_within_closure.output_full": [1506, 1548],
+		"Var_within_closure.unique_name": [1475, 1504],
+		"Var_within_closure.get_compilation_unit": [1423, 1473],
+		"Var_within_closure.in_compilation_unit": [1365, 1422],
+		"Var_within_closure.unwrap_set": [1323, 1363],
+		"Var_within_closure.wrap_map": [1278, 1322],
+		"Var_within_closure.unwrap": [1248, 1276],
+		"Var_within_closure.wrap": [1221, 1247],
+		"Var_within_closure.print": [3693, 3717],
+		"Var_within_closure.output": [3693, 3717],
+		"Var_within_closure.compare": [3693, 3717],
+		"Var_within_closure.hash": [3693, 3717],
+		"Var_within_closure.equal": [3693, 3717]},
+	"locs": []
+}

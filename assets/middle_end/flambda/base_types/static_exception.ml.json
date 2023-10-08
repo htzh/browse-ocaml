@@ -1,0 +1,19 @@
+{
+	"exports": {
+		"Static_exception.to_int": [1306, 1312],
+		"Static_exception.create": [1263, 1269],
+		"Static_exception.to_string": [1482, 1511],
+		"Static_exception.zero_to_n": [1451, 1479],
+		"Static_exception.print": [3693, 3717],
+		"Static_exception.output": [3693, 3717],
+		"Static_exception.compare": [3693, 3717],
+		"Static_exception.hash": [3693, 3717],
+		"Static_exception.equal": [3693, 3717]},
+	"locs": [[1263, 1269, {"name": "create", "def": "VD", "typ": "unit &xrarr; int"}],
+		[1270, 1272, {"name": "()", "def": "TR", "typ": "unit"}],
+		[1275, 1298, {"name": "Lambda.next_raise_count", "def": "VR", "intf": "lambda/lambda.mli", "loc": [15925, 15959], "impl": "lambda/lambda.ml", "typ": "unit &xrarr; int"}],
+		[1299, 1301, {"name": "()", "def": "TR", "typ": "unit"}],
+		[1306, 1312, {"name": "to_int", "def": "VD", "typ": "'a &xrarr; 'a"}],
+		[1313, 1314, {"name": "t", "def": "VD", "typ": "'a"}],
+		[1317, 1318, {"name": "t", "def": "VR", "loc": [1313, 1314],"typ": "'a"}]]
+}

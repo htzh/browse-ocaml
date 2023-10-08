@@ -1,0 +1,16 @@
+{
+	"exports": {
+		"Stdlib.Unit.to_string": [1148, 1157],
+		"Stdlib.Unit.compare": [1126, 1133],
+		"Stdlib.Unit.equal": [1103, 1108]},
+	"locs": [[1088, 1092, {"name": "unit", "def": "TR", "typ": "unit"}],
+		[1103, 1108, {"name": "equal", "def": "VD", "typ": "t &xrarr; t &xrarr; bool"}],
+		[1109, 1111, {"name": "()", "def": "TR", "impl": "unit.ml", "loc": [1095, 1097],"typ": "t"}],
+		[1112, 1114, {"name": "()", "def": "TR", "impl": "unit.ml", "loc": [1095, 1097],"typ": "t"}],
+		[1117, 1121, {"name": "true", "def": "TR", "typ": "bool"}],
+		[1126, 1133, {"name": "compare", "def": "VD", "typ": "t &xrarr; t &xrarr; int"}],
+		[1134, 1136, {"name": "()", "def": "TR", "impl": "unit.ml", "loc": [1095, 1097],"typ": "t"}],
+		[1137, 1139, {"name": "()", "def": "TR", "impl": "unit.ml", "loc": [1095, 1097],"typ": "t"}],
+		[1148, 1157, {"name": "to_string", "def": "VD", "typ": "t &xrarr; string"}],
+		[1158, 1160, {"name": "()", "def": "TR", "impl": "unit.ml", "loc": [1095, 1097],"typ": "t"}]]
+}

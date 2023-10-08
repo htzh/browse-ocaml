@@ -1,0 +1,23 @@
+{
+	"exports": {
+		"Mutable_variable.create_from_variable": [1260, 1280],
+		"Mutable_variable.output_full": [2438, 2480],
+		"Mutable_variable.compare_lists": [2393, 2436],
+		"Mutable_variable.debug_when_stamp_matches": [2250, 2323],
+		"Mutable_variable.print_opt": [2079, 2131],
+		"Mutable_variable.print_list": [2027, 2078],
+		"Mutable_variable.get_compilation_unit": [1975, 2025],
+		"Mutable_variable.unique_name": [1944, 1973],
+		"Mutable_variable.name": [1920, 1942],
+		"Mutable_variable.in_compilation_unit": [1861, 1918],
+		"Mutable_variable.rename": [1785, 1859],
+		"Mutable_variable.create_with_same_name_as_ident": [1734, 1783],
+		"Mutable_variable.create": [1635, 1733],
+		"Mutable_variable.print": [3693, 3717],
+		"Mutable_variable.output": [3693, 3717],
+		"Mutable_variable.compare": [3693, 3717],
+		"Mutable_variable.hash": [3693, 3717],
+		"Mutable_variable.equal": [3693, 3717]},
+	"locs": [[1260, 1280, {"name": "create_from_variable", "def": "VD", "typ": "?current_compilation_unit:Compilation_unit.t &xrarr; t &xrarr; t"}],
+		[1283, 1289, {"name": "rename", "def": "VR", "intf": "middle_end/variable.mli", "loc": [1785, 1859], "impl": "middle_end/variable.ml", "typ": "?current_compilation_unit:Compilation_unit.t &xrarr; t &xrarr; t"}]]
+}

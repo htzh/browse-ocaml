@@ -1,0 +1,9 @@
+{
+	"exports": {
+},
+	"locs": [[4, 6, {"name": "()", "def": "TR", "typ": "unit"}],
+		[11, 15, {"name": "Stdlib.exit", "def": "VR", "intf": "stdlib/stdlib.mli", "loc": [51752, 51772], "impl": "stdlib/stdlib.ml", "typ": "int &xrarr; unit"}],
+		[17, 35, {"name": "Optmaindriver.main", "def": "VR", "intf": "driver/optmaindriver.mli", "loc": [1325, 1375], "impl": "driver/optmaindriver.ml", "typ": "string array &xrarr; Format.formatter &xrarr; int"}],
+		[36, 44, {"name": "Stdlib.Sys.argv", "def": "VR", "intf": "stdlib/sys.mli", "loc": [1238, 1280], "impl": "stdlib/sys.ml", "typ": "string array"}],
+		[45, 65, {"name": "Stdlib.Format.err_formatter", "def": "VR", "intf": "stdlib/format.mli", "loc": [39140, 39169], "impl": "stdlib/format.ml", "typ": "Format.formatter"}]]
+}

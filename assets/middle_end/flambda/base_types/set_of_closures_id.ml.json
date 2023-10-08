@@ -1,0 +1,18 @@
+{
+	"exports": {
+		"Set_of_closures_id.name": [1466, 1470],
+		"Set_of_closures_id.get_compilation_unit": [1426, 1446],
+		"Set_of_closures_id.create": [1398, 1404],
+		"Set_of_closures_id.print": [3864, 3884],
+		"Set_of_closures_id.output": [3864, 3884],
+		"Set_of_closures_id.compare": [3864, 3884],
+		"Set_of_closures_id.hash": [3864, 3884],
+		"Set_of_closures_id.equal": [3864, 3884]},
+	"locs": [[1346, 1355, {"name": "Unit_id.t", "def": "TR", "intf": "middle_end/flambda/base_types/id_types.mli", "loc": [1956, 2011], "typ": "Unit_id.t"}],
+		[1398, 1404, {"name": "create", "def": "VD", "typ": "?name:string &xrarr; Compilation_unit.t &xrarr; Unit_id.t"}],
+		[1407, 1421, {"name": "Unit_id.create", "def": "VR", "intf": "middle_end/flambda/base_types/id_types.mli", "loc": [1956, 2011], "impl": "middle_end/flambda/base_types/id_types.ml", "typ": "?name:string &xrarr; Compilation_unit.t &xrarr; Unit_id.t"}],
+		[1426, 1446, {"name": "get_compilation_unit", "def": "VD", "typ": "Unit_id.t &xrarr; Compilation_unit.t"}],
+		[1449, 1461, {"name": "Unit_id.unit", "def": "VR", "intf": "middle_end/flambda/base_types/id_types.mli", "loc": [1956, 2011], "impl": "middle_end/flambda/base_types/id_types.ml", "typ": "Unit_id.t &xrarr; Compilation_unit.t"}],
+		[1466, 1470, {"name": "name", "def": "VD", "typ": "Unit_id.t &xrarr; string option"}],
+		[1473, 1485, {"name": "Unit_id.name", "def": "VR", "intf": "middle_end/flambda/base_types/id_types.mli", "loc": [1956, 2011], "impl": "middle_end/flambda/base_types/id_types.ml", "typ": "Unit_id.t &xrarr; string option"}]]
+}

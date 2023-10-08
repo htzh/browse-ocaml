@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#code {
+    position: absolute;
+    width: 650px;
+    height: 700px;
+}
+#rightPanel {
+	position: absolute;
+	left: 700px;
+}
+
+#history {
+	margin-top: 15px;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+/* Remove default bullets */
+#tree ul, #jumps {
+  list-style-type: none;
+}
+
+.treelist, #jumps {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the caret/arrow */
+.caret, .jump {
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+	<div id="panels">
+		<div id="code"></div>
+		<div id="rightPanel">
+			<div> <span id="choosefile" class="caret"></span> <span id="file"></span> <span id="curInd"></span></div>
+			<div id="tree" class="nested"></div>
+			<div id="annot"></div>
+			<div id="history"></div>
+		</div>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-ocaml.min.js" integrity="sha512-1guB/4lkLImbXCwgasm6h9m1qd5A3VF+aFGLIyASax3LAjb9VZTjCmEco5kePQkGesP20GGDkCZvQ0hYAGRZhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+	var ocaml_tree = {};
+	var jumps = [];
+	var cursor_context = null;
+
+	function is_def(s) {return s == "VD" || s == "TD";}
+
+	function is_ref(s) {return s == "VR" || s == "TR";}
+
+	function save_current() {
+			let path = document.getElementById("file").textContent;
+			if (!path) return;
+			let context;
+			if (cursor_context === null) context = {};
+			else {
+					let n = cursor_context[0];
+					context = {n: n, data: annot.locs[n]};
+				}
+			let current = {path: path, cursor: code.session.selection.getCursor(), context: context};
+			let found = (function() {
+					for (let i=0; i<jumps.length; i++) {
+							let j = jumps[i];
+							if (j.path == current.path && ((j.cursor.row == current.cursor.row && j.cursor.column == current.cursor.column) || ("n" in j.context && j.context.n == current.context.n))) return i;
+						}
+							return null;
+				})();
+			if (found !== null) jumps.splice(found, 1);
+			jumps.unshift(current);
+			let history = jumps.map(function(j) {
+					if (!("n" in j.context)) return `<li class="jump" onclick="jump_to_cursor('${j.path}', ${j.cursor.row}, ${j.cursor.column})">${j.path} (${j.cursor.row+1}, ${j.cursor.column+1}) </li>`;
+					let n = j.context.n;
+					let d = j.context.data[2];
+					let def = is_def(d.def) ? "def of" : "ref of";
+					return `<li class="jump" onclick="jump_to_n('${j.path}', ${n})">${j.path} ${def} ${d.name}</li>`; }).join("\n");
+			document.getElementById("history").innerHTML = `<ul id="jumps">${history}</ul>`;
+		}
+
+	function jump_to_cursor(path, row, col) {
+			let current_path = document.getElementById("file").textContent;
+			let range = new ace.Range(row, col, row, col);
+			if (path == current_path) select_and_go({range: range});
+			else load_annot(path, {range: range});
+		}
+
+	function jump_to_n(path, n) {
+			let current_path = document.getElementById("file").textContent;
+			if (path == current_path) select_and_go({loc: [annot.locs[n][0], annot.locs[n][1]]});
+			else load_annot(path, {n: n});
+		}
+
+
+	function toggle_nested(e) {
+			e.parentElement.querySelector(".nested").classList.toggle("show");
+			e.classList.toggle("caret-down");
+		}
+
+	function jump_to_and_toggle(path) {
+			save_current();
+			load_annot(path, {});
+			document.getElementById("choosefile").click();
+		}
+
+	function dirstr(d) {
+			let subdirs = d.folders.map(dirstr).join("\n");
+			let path = d.path+"/";
+			let files = d.files.map(f => `<li><span onclick="jump_to_and_toggle('${path+f.name}')">${f.name}</span></li>`).join("");
+			return `<li><span class="caret" onclick="toggle_nested(this)">${d.path}</span>\n<ul class="nested">${subdirs}${files}</ul></li>`;
+		}
+
+	(function () {
+			let url = "assets/ocaml_tree.json";
+			fetch(url).then(response => {
+					response.json().then(data => {
+							ocaml_tree = data;
+							let ul = data.map(dirstr).join("\n");
+							document.getElementById("tree").innerHTML=`<ul class="treelist">${ul}</ul>`;
+						});
+				});
+		}) ();
+
+var code = ace.edit("code");
+code.session.setMode("ace/mode/ocaml");
+
+var annot = {};
+
+	function bin_search(lower, upper, pos) {
+			let mid = Math.floor((lower + upper)/2);
+			let val = annot.locs[mid];
+			if (val[0] <= pos && pos <= val[1]) return [mid, val[2]];
+			if (lower == upper) return null;
+			if (pos < val[0] && mid > lower) return bin_search(lower, mid-1, pos);
+			if (pos > val[1] && mid < upper) return bin_search(mid+1, upper, pos);
+			return null
+		}
+
+	function select_and_go(d) {
+			let range;
+			if ("range" in d) range = d.range;
+			else if ("loc" in d) {
+					let startpos = code.session.doc.indexToPosition(d.loc[0]);
+					let endpos = code.session.doc.indexToPosition(d.loc[1]);
+					range = new ace.Range(startpos.row, startpos.column, endpos.row, endpos.column);
+				}
+			code.scrollToLine(range.start.row);
+			code.session.selection.setRange(range);
+		}
+
+	function load_code(path, d) {
+			let ocaml = "https://raw.githubusercontent.com/ocaml/ocaml/4.10.2/";
+			let url = ocaml+encodeURIComponent(path);
+			fetch(url).then(function(response) {
+					response.text().then(function(text) {
+							document.getElementById("file").innerHTML = path;
+							code.setValue(text, -1);
+							if ("range" in d || "loc" in d) select_and_go(d);
+							else if ("name" in d && d.name in annot.exports) select_and_go({loc: annot.exports[d.name]});
+						});
+				});
+		}
+
+	function load_annot(path, d) {
+			let annot_url = "assets/"+encodeURIComponent(path+".json");
+			fetch(annot_url).then(function(response) {
+					response.json().then(data => {
+							annot = data;
+							if ("n" in d) d = {loc: data.locs[d.n]};
+							load_code(path, d);
+						});
+				});
+		}
+
+	function jump_to_intf(n) {
+			save_current();
+			let d = annot.locs[n][2];
+			annot = {};
+			load_code(d.intf, {loc: d.loc});
+		}
+
+	function jump_to_impl(n) {
+			save_current();
+			let d = annot.locs[n][2];
+			if ("impl" in d) {
+					let data = ((!("intf" in d)) && "loc" in d) ? {loc: d.loc} : {name: d.name};
+					load_annot(d.impl, data);
+				}
+			else select_and_go({loc: d.loc});
+		}
+
+	load_annot("driver/main.ml", {});
+code.setReadOnly(true);
+
+	document.getElementById("choosefile").addEventListener("click", function() {
+			this.classList.toggle("caret-down");
+			document.getElementById("tree").classList.toggle("show");
+		});
+
+code.session.selection.on('changeCursor', function(e) {
+		let pos = code.session.selection.getCursor();
+		let ind = code.session.doc.positionToIndex(pos);
+		document.getElementById("curInd").innerHTML = `(row: ${pos.row+1}, col: ${pos.column+1}) ${ind}`;
+		let found = Object.keys(annot).length === 0 ? null : bin_search(0, annot.locs.length - 1, ind);
+		cursor_context = found;
+		if (found === null)
+			document.getElementById("annot").innerHTML = "";
+		else {
+				let which = found[0];
+				let res = found[1];
+				let def = is_def(res.def) ? "defines" : "references";
+				let path = document.getElementById("file").textContent;
+				let d = annot.locs[which][2];
+				let away = ("impl" in d && d.impl != path) ? ` in ${d.impl}` : "";
+				let impl = (res.def == "VR" || (res.def == "TR" && "loc" in res && !("intf" in res))) ? `<button onclick="jump_to_impl(${which})">Go to definition${away}</button>` : "";
+				let intf = ("intf" in res && is_ref(res.def)) ? `<button onClick="jump_to_intf(${which})">Go to declaration in ${d.intf}</button>` : "";
+				document.getElementById("annot").innerHTML = `${def}: <b>${res.name}</b> ${impl} ${intf} <p>type: <i>${res.typ}</i>`;
+			}
+});
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+{
+	"exports": {
+		"Closure_id.output_full": [1506, 1548],
+		"Closure_id.unique_name": [1475, 1504],
+		"Closure_id.get_compilation_unit": [1423, 1473],
+		"Closure_id.in_compilation_unit": [1365, 1422],
+		"Closure_id.unwrap_set": [1323, 1363],
+		"Closure_id.wrap_map": [1278, 1322],
+		"Closure_id.unwrap": [1248, 1276],
+		"Closure_id.wrap": [1221, 1247],
+		"Closure_id.print": [3693, 3717],
+		"Closure_id.output": [3693, 3717],
+		"Closure_id.compare": [3693, 3717],
+		"Closure_id.hash": [3693, 3717],
+		"Closure_id.equal": [3693, 3717]},
+	"locs": []
+}

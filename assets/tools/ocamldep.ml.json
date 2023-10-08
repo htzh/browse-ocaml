@@ -1,0 +1,7 @@
+{
+	"exports": {
+},
+	"locs": [[4, 6, {"name": "()", "def": "TR", "typ": "unit"}],
+		[9, 24, {"name": "Makedepend.main", "def": "VR", "intf": "driver/makedepend.mli", "loc": [1079, 1102], "impl": "driver/makedepend.ml", "typ": "unit &xrarr; unit"}],
+		[25, 27, {"name": "()", "def": "TR", "typ": "unit"}]]
+}

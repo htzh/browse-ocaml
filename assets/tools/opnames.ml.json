@@ -1,0 +1,5 @@
+{
+	"exports": {
+		"Opnames.names_of_instructions": [4, 25]},
+	"locs": [[4, 25, {"name": "names_of_instructions", "def": "VD", "typ": "string array"}]]
+}
